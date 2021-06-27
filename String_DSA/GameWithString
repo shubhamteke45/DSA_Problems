@@ -1,0 +1,51 @@
+package String;
+
+import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
+
+public class GameWithString {
+
+	public static void main(String[] args) {
+		
+		String s = "aabcbcbcabcc";
+		int k=3;
+		
+		HashMap<Character, Integer> hm = new HashMap<>();
+		
+		for(int i=0;i<s.length();i++) {
+			char key = s.charAt(i);
+			
+			if(hm.containsKey(key)) {
+				int freq=hm.get(key);
+				freq++;
+				hm.put(key, freq);
+			}
+			else {
+				hm.put(key, 1);
+			}
+		}
+		
+		int[] arr = new int[hm.size()];
+		int j=0;
+		for(Map.Entry<Character, Integer> entry: hm.entrySet()) {
+			arr[j]=entry.getValue();
+			j++;
+		}
+		
+		Arrays.sort(arr);
+		
+		
+		int z=0;
+		int n=arr.length;
+		while(z<k) {
+			arr[n-1] = arr[n-1]-1;
+			Arrays.sort(arr);
+			z++;
+		}
+		for(int i=0;i<arr.length;i++) {
+			System.out.println(arr[i]);
+		}
+	}
+
+}
