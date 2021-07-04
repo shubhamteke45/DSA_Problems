@@ -182,10 +182,6 @@ public class ShubhamLinkedList {
 		return size;
 	}
 	
-	public static void main(String[] args) {
-		
-
-	}
 }
 
 //throw user defined exception
